@@ -107,7 +107,7 @@ function showInputSection() {
     checkIfSearchReady();
 }
 
-// (중략: initKakaoMapAndDisplayMarkers 부터 fetchEventsFromBackend 까지 로직은 동일)
+// (중략: initKakaoMapAndDisplayMarkers 부터 updatePaginationButtons 까지 로직은 변경 없음)
 function initKakaoMapAndDisplayMarkers(location, events) {
     if (typeof kakao === 'undefined' || typeof kakao.maps === 'undefined') {
         console.error("Kakao Maps API is not loaded.");
@@ -272,6 +272,9 @@ function showResults(location, events) {
     searchButton.disabled = false;
 }
 
+// -----------------------------------
+// ⭐️ [수정된 부분] 백엔드 URL을 상대 경로로 변경 ⭐️
+// -----------------------------------
 async function fetchEventsFromBackend() {
     const formData = new FormData();
     formData.append('file', uploadedFile);
@@ -281,7 +284,8 @@ async function fetchEventsFromBackend() {
     searchButton.textContent = 'Searching...';
 
     try {
-        const res = await fetch('http://127.0.0.1:3001/api/search_events', { 
+        // http://127.0.0.1:3001 대신 상대 경로를 사용하여 Render 배포 환경에 적합하도록 수정
+        const res = await fetch('/api/search_events', { 
             method: 'POST', 
             body: formData 
         });
