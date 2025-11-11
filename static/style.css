@@ -1,0 +1,123 @@
+/* style.css 파일 전체 */
+body {
+    background-color: #003366;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-weight: 500;
+    min-height: 100vh;
+}
+
+/* ⭐️ 파일 입력 요소 숨기기 (파일 선택 문제 해결의 핵심 CSS) ⭐️ */
+#photoInput {
+    display: none;
+}
+
+/* ⭐️ 파일 레이블 스타일링 (Choose File 버튼 모양) ⭐️ */
+#fileLabel {
+    background-color: #0055aa;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+#fileLabel:hover {
+    background-color: #8db3d9;
+}
+
+/* 새로 추가된 안내 문구 스타일 (요청하신 밝은 하늘색) */
+.new-guide-text {
+    color: lightblue !important;
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+.blue-text {
+    color: #032c46 !important;
+}
+
+#dateInput {
+    color: #333;
+}
+
+#searchButton:disabled {
+    background-color: #ccc !important;
+    border-color: #ccc !important;
+    cursor: not-allowed;
+}
+
+/* ------------------ 결과 페이지 레이아웃 최종 수정 ------------------ */
+
+/* ⭐️ [수정 1] Kakao Map 한국어 컨트롤 요소 숨기기 ⭐️ */
+#map > div:first-child > div:nth-child(4),
+#map > div:first-child > div:nth-child(5),
+#map > div:first-child > div:nth-child(6) {
+    display: none !important;
+}
+
+.result-img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+}
+
+.info-box {
+    background-color: #e9ecef;
+    padding: 1rem;
+    border-radius: 8px;
+    color: #333;
+    width: 100%;
+    margin-top: 1rem;
+    min-height: 120px; 
+}
+
+.results-content { display: flex; flex-direction: column; height: 650px; }
+#map-container { flex-grow: 1; margin-bottom: 1rem; }
+
+#event-detail {
+    background-color: #ffffff !important;
+    border-radius: 8px;
+    color: #333;
+    max-height: 180px !important;
+    padding: 1rem;
+}
+
+#pagination-container {
+    background-color: transparent !important;
+    border-radius: 8px;
+    padding: 1rem !important;
+    margin-top: 1rem !important;
+    box-shadow: none !important;
+}
+
+.nav-button {
+    height: 35px !important;
+    width: 35px !important;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+#pagination-buttons button {
+    background-color: #ffffff !important;
+    color: #333 !important;
+    border: none;
+    width: 35px !important;
+    height: 35px;
+    font-size: 0.9rem;
+    margin: 0 4px !important;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+#pagination-buttons button:hover { background-color: #e9ecef !important; }
+#pagination-buttons .active { background-color: #0055aa !important; color: #fff !important; }
+
+.map-hint { color: #e9ecef; opacity: 0.9; font-size: 0.85rem; }
+.map-lang-note { color: #f0f0f0; opacity: 0.85; font-size: 0.78rem; }
